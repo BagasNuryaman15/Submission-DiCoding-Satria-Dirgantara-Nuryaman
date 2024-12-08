@@ -12,7 +12,7 @@
     --second-text-clr: #def2c1;
 }
 
-/* Universal */
+/* Universal Reset */
 
 ::after,
 ::before,
@@ -36,13 +36,12 @@ a {
     text-decoration: none;
 }
 
-/* Resuable Sselector */
-
+/* --------------------------Resuable Sselector------------------------- */
 .container {
     margin-inline: 5rem;
 }
 
-/* Header */
+/* ---------------------------------HEADER-------------------------------- */
 .header {
     position: relative;
     top: 0;
@@ -52,7 +51,7 @@ a {
     width: 100%;
 }
 
-/* Header Syling */
+/* ---------------------------------HEADER STYLING-------------------------------- */
 /* Navigation Group */
 .header > .navigation__nav {
     position: relative;
@@ -188,10 +187,11 @@ a {
     color: var(--white-light-clr);
 }
 
-/*------------------------Hero Section-------------------- */
+/* ---------------------------------HERO SECTION-------------------------------- */
 
+/* Main Hero Section */
 main {
-    margin-top: 5rem;
+    margin-top: 7rem;
     display: flex;
 }
 
@@ -275,53 +275,9 @@ main > .hero__content {
     border-radius: calc(3rem - 1rem);
 }
 
-/* Profile CEO */
-/* Profile Card */
-.hero__content > .profile-card {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1rem;
-    background-color: var(--white-transparant);
-    padding: 1rem 2rem;
-    border-radius: calc(3rem - 1.5rem);
-    margin-bottom: 1rem;
-}
+/* ---------------------------------HERO IMAGE-------------------------------- */
 
-/* Profile Image */
-
-.profile-card > .profile-card__image {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-}
-
-/* Profile Content */
-
-.profile-card > .profile-card__content {
-    display: flex;
-    flex-direction: column;
-    row-gap: .5rem;
-}
-
-/* Profile title */
-
-.profile-card__content > .profile-card__title {
-    font-weight: 700;
-    color: var(--white-light-clr);
-}
-
-
-/* Profile Quote */
-
-.profile-card__content > .profile-card__quote {
-   font-size: 1rem;
-   color: var(--white-clr);
-}
-
-/* Group Aside And Image */
-
+/* aside */
 aside {
     flex: 1;
     position: relative;
@@ -333,16 +289,30 @@ aside {
 .hero__image > .hero__figure {
     background-size: cover; 
     background-position: center; 
-    filter: brightness(75%);
 
 }
 
 aside > .hero__figure--features {
     position: relative;
     background-image: url('../assets/imagefigure-1.webp');
-    max-width: 800px;
+    width: 800px;
+    min-width: 400px;
     height: 400px;
     border-radius: calc( .05 * 800px);
+    object-fit: cover;
+    overflow: hidden;
+}
+
+aside > .hero__figure--features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    pointer-events: none; 
+    border-radius: inherit; 
 }
 
 /* Labels Group */
@@ -374,48 +344,61 @@ aside > .hero__figure--features {
 }
 
 .hero__label:nth-child(1) {
-    top: 10%;
-    left: 20%; 
+    top: 5vh;
+    left: 10vw; 
 }
 
 .hero__label:nth-child(2) {
-    top: 7rem; 
-    right: 20%;
+    top: 15vh; 
+    right: 10vw;
 
 }
 
 .hero__label:nth-child(3) {
-    top: 50%; 
-    left: 15%;
+    top: 20vh; 
+    left: 5vh;
 }
 
 .hero__label:nth-child(4) {
-    bottom: 30%; 
-    right: 25%;
+    bottom: 10vh; 
+    right: 5vw;
 }
 
 .hero__label:nth-child(5) {
-    bottom: 10%;
-    left: 30%;
+    bottom: 5vh;
+    left: 10vw;
 }
 
 /* Hero Figure Two */
 
-.hero__image > .hero__figure-container {
+.hero__image > .hero__figure--container {
     display: flex;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.hero__figure-container > .hero__figure--cta {
+.hero__figure--container > .hero__figure--cta {
     position: relative;
-    background-image: url('../assets/imagefigure-2.webp');
-    width: 100%;
-    height: 300px;
+    background-image: url('../assets/imgaefigure-2.webp');
+    width: 400px;
+    min-width: 200px;
+    height: 200px;
     border-radius: calc(0.05 * 400px);
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     flex: 1;
+}
+
+.hero__figure--container > .hero__figure--cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    pointer-events: none; 
+    border-radius: inherit; 
 }
 
 .hero__figure--cta > .hero__cta__images {
@@ -425,8 +408,8 @@ aside > .hero__figure--features {
 }
 
 .hero__cta__images > .hero__cta__image {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: auto;
     border-radius: 100%;
     object-fit: cover;
 }
@@ -460,37 +443,64 @@ aside > .hero__figure--features {
     justify-content: space-between;
     margin: 0 1.5rem;
     flex-direction: column;
-    height: 70%;
+    height: 65%;
 }
 
 
 .hero__content__cta > .hero__figure__label {
-    color: var(--black-clr);
+    color: var(--white-clr);
     font-weight: 700;
 }
 
 .hero__content__cta > .hero__figure__title {
-    color: var(--white-light-clr);
     width: 80%;
     text-transform: capitalize;
     font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--white-clr);
 }
 
 /* Visualisai Image Man Farming */
 
 .hero__figure-container .hero__figure--visual {
-    flex: 1;
+    flex: 1 ;
 }
 
-.hero__figure--visual > img {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
+.hero__figure--visual > .hero__visual--image {
+    width: 400px;
+    min-width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: calc(0.05 * 400px);
-    flex: 1;
 }
 
+.hero__figure--visual > .hero__visual--image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    pointer-events: none; 
+    border-radius: inherit; 
+}
+
+
+
+
+
+/* --------------------------Responsive Breakpoints------------------------ */
+
+/* For 2X Large Device */
+@media  screen and (max-width: 1505px) {
+    
+}
+
+/* For X Large Device */
+
+@media screen and (max-width: 1280px) {}
 
 /* For Small device */
 @media screen and (max-width: 640px) {
